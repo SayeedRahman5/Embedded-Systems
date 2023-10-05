@@ -18,8 +18,8 @@
 // Inputs
 DigitalIn SW2(BTN1_PIN);
 DigitalIn SW3(BTN2_PIN);
-DigitalInOut SW4(BTN3_PIN,PIN_INPUT,PullDown,0);
-DigitalInOut SW5(BTN4_PIN,PIN_INPUT,PullDown,0);
+DigitalInOut SW4(BTN3_PIN,PIN_INPUT,PullDown,1);
+DigitalInOut SW5(BTN4_PIN,PIN_INPUT,PullDown,1);
 
 // Outputs
 DigitalOut ledRed(TRAF_RED1_PIN);
@@ -29,13 +29,13 @@ DigitalOut ledGrn(TRAF_GRN1_PIN);
 int main()
 {
     while (true) {
-        if (SW2 == 1) {
+        if (SW4 == 1) {
             ledRed = 1;
         } else {
             ledRed = 0;
         }
 
-        if (SW3.read() == 1) {
+        if (SW5.read() == 1) {
             ledYel = 1;
         } else {
             ledYel = 0;

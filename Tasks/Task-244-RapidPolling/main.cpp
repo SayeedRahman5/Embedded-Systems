@@ -100,7 +100,10 @@ int main()
         }
 
         // LED
-        if (tm >= 250ms) {
+        
+        microseconds counttime = (100ms + (100ms * count));
+       
+        if (tm >= counttime) {
             greenLED = !greenLED;
             tmr.reset();
         }

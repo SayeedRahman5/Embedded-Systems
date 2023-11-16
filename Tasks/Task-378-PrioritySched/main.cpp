@@ -70,7 +70,7 @@ int main() {
 
     while (onBoardSwitch == 0) {
         printf("Main Thread checking in!\n");
-        buzz.playTone("G");
+        buzz.playTone("D");
         ThisThread::sleep_for(125ms);
         buzz.rest();
         ThisThread::sleep_for(2s);

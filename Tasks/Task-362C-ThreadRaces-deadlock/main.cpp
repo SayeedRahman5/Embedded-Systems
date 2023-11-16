@@ -95,10 +95,13 @@ int main() {
         t2.start(countDown);
 
         //INDUCE A DEADLOCK
-        counterLock.lock(); // Add one extra lock (oops)
+        if(counterLock.trylock_for(5s) == true){ // Add one extra lock (oops)
         t1.join();  //Wait for t1 to complete
         t2.join();  //Wait for t2 to complete
         counterLock.unlock(); //Release again
+        }else{
+            printf("Error");
+        }
     }
     
     //Did the counter end up at zero?

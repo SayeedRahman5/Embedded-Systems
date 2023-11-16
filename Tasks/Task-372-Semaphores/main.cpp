@@ -63,10 +63,15 @@ void descend()
 
 int main(void)
 {
+    // countLock.lock();
+    // counter = 0;
+    // countLock.unlock();
     DigitalOut led(LED3);
     t1.start(climb);
     t2.start(descend);
-
+    // countLock.lock();
+    // counter = 5;
+    // countLock.unlock();
     while (true) {
         ThisThread::sleep_for(1000ms);
         led = !led;

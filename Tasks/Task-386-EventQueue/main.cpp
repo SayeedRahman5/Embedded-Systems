@@ -57,6 +57,7 @@ int main() {
 void workerThread()
 {
     workerQueue.dispatch_forever();
+    heartBeat();
 }
 
 void buttonPressedISR() { 
@@ -88,4 +89,5 @@ void addSample(long long dur) {
 //Flashing LED 
 void heartBeat() {
     redLED = !redLED;
+    printf("Main Thread Alive\n");
 }

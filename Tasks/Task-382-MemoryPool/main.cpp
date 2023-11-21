@@ -44,7 +44,8 @@ void switchISR() {
     float sample = 0.01f*(float)(rand() % 100);
 
     //Grab switch state
-    uint32_t switch1State = buttonA;
+    uint32_t switch1State = buttonA; 
+    
     uint32_t switch2State = buttonB;
     
     //Allocate a block from the memory pool (non blocking)

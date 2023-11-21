@@ -9,7 +9,7 @@
 EthernetInterface net;
 char rbuffer[65];
 
-#define IPV4_HOST_ADDRESS "10.42.0.1"
+#define IPV4_HOST_ADDRESS "172.16.57.29"
 #define TCP_SOCKET_PORT 8888
 
 DigitalIn BlueButton(USER_BUTTON);
@@ -22,6 +22,7 @@ int main()
     printf("Ethernet socket example\n");
     net.connect();
     bool keepGoing = true;
+    int sendCounter = 0;
  
     do {
         // Show the network address
@@ -53,10 +54,12 @@ int main()
         int scount;
         if (BlueButton == 0) {
             scount = socket.send(sbuffer, sizeof sbuffer);
+            sendCounter++;
         } else {
             printf("Sending END\n");
             scount = socket.send(qbuffer, sizeof qbuffer);
             keepGoing = false;
+        printf("Total sends was %i", sendCounter);
         }
         
         printf("sent\r\n");

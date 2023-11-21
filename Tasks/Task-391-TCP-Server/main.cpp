@@ -25,7 +25,7 @@ int main()
     printf("\r\nBasic TCP server example\r\n");
     
     // Connect the ethernet interface
-    // net.set_network(IP, NETMASK, GATEWAY);  //For static IP
+    //net.set_network(IP, NETMASK, GATEWAY);  //For static IP
     net.connect();
 
     // Get the network address
